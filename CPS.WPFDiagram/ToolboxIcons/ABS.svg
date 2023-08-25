@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="195" height="120" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.0">
+ <g class="layer">
+	 <path d="		   
+		   M 20 0
+		   L 120 0
+		   L 120 80
+		   L 100 100
+		   L 20 100
+		   L 20 0
+		   M 0 50
+		   L 20 50
+		   M 120 50
+		   L 195 50
+           " stroke='#035fb5' fill='none'/>
+	 <text x='30' y='65' font-size='30'>NOT</text>
+ </g>
+</svg>

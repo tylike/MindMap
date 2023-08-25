@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<svg width="195" height="120" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.0">
+ <g class="layer">
+	 <!--生成图形:
+	 1.左侧两条横线
+	 2.中间一个等边三角形
+	 3.三角形右侧的顶点处画一个小圆
+	 4.右侧一条横线
+	 -->
+	 <path d="
+		   M 20 0
+		   L 120 50
+           L 20 100
+		   L 20 0
+		   M 0 20
+		   L 20 20
+		   M 0 80
+		   L 20 80
+		   M 126 50
+		   L 195 50
+           " stroke='#035fb5' fill='none'/>
+	 <circle cx='123' cy='50' r='3' fill='none'  stroke='#035fb5'></circle>
+	 <text x='30' y='65' font-size='30'>NOT</text>
+	 <!--
+	 生成图形:
+	 1.左侧两条横线
+	 2.中间一个等边三角形,但三条边都是圆弧,向三角形内侧靠近
+	 3.三角形右侧的顶点处画一个小圆
+	 4.右侧一条横线
+	 -->
+
+ </g>
+</svg>

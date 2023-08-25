@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="WpfProject.App.AppView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WpfProject.App"
+             xmlns:networkDataFlow="clr-namespace:ProjectB.Views.WPF.Controls.NetworkDataFlow"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="NetworkCustomization/Resources/NetworkResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <networkDataFlow:WpfNetworkDataFlow x:Name="WpfNetworkDataFlow"
+                                            Margin="5"
+                                            x:FieldModifier="public"
+                                            Nodes="{Binding NetworkData.NetworkNodes, Mode=TwoWay }"
+                                            Connectors="{Binding NetworkData.NetworkConnectors, Mode=TwoWay}"
+                                            ItemTemplate="{StaticResource NodeTemplate}"
+                                            Direction="Downwards"
+                                            ConnectorFromMember="StartItemId"
+                                            ConnectorToMember="EndItemId"
+                                            Background="White">
+            <networkDataFlow:WpfNetworkDataFlow.ContextMenuItems>
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+                <dxb:BarButtonItem Content="Option1" />
+            </networkDataFlow:WpfNetworkDataFlow.ContextMenuItems>
+        </networkDataFlow:WpfNetworkDataFlow>
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1"
+                    Margin="5">
+            <Button Width="100"
+                    Height="30"
+                    Content="Do Task 1"></Button>
+            <Button Width="100"
+                    Height="30"
+                    Content="Expand all"
+                    Command="{Binding ApplyStateToAllTransformationsCommand, ConverterParameter=expand}"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

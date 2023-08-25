@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dxdiag="http://schemas.devexpress.com/winfx/2008/xaml/diagram"
+                    xmlns:converters2="clr-namespace:ProjectB.Views.WPF.DataFlow_2_0.Views.Converters"
+                   >
+
+    <converters2:ColorArgbToBrushConverter x:Key="ColorArgbToBrushConverter" />
+    <converters2:LayerInfoToLayerBackgroundMultiConverter x:Key="LayerInfoToLayerBackgroundMultiConverter" />
+
+    <ControlTemplate x:Key="DiagramContainerTemplate"
+                     TargetType="{x:Type dxdiag:DiagramContainer}">
+        <Border BorderBrush="{Binding LayerInfo.ColorArgb, Converter={StaticResource ColorArgbToBrushConverter}}"
+                BorderThickness="10,3,3,3">
+            <Grid>
+                <Grid Opacity="0.5">
+                    <Grid.Background>
+                        <MultiBinding Converter="{StaticResource LayerInfoToLayerBackgroundMultiConverter}">
+                            <Binding Path="DataContext.ShowLayersColor"
+                                     RelativeSource="{RelativeSource FindAncestor,AncestorType={x:Type UserControl}}" />
+                            <Binding Path="LayerInfo.ColorArgb" />
+                        </MultiBinding>
+                    </Grid.Background>
+                </Grid>
+                <TextBlock Text="{Binding LayerInfo.Name}"
+                           FontWeight="Bold"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Left"
+                           Margin="2,0,2,2" />
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type dxdiag:DiagramContainer}">
+        <Setter Property="CanAddItems"
+                Value="False" />
+        <Setter Property="CanDelete"
+                Value="False" />
+        <Setter Property="CanEdit"
+                Value="False" />
+        <Setter Property="CanMove"
+                Value="False" />
+        <Setter Property="CanResize"
+                Value="False" />
+        <Setter Property="CanSelect"
+                Value="False" />
+        <Setter Property="Template"
+                Value="{StaticResource DiagramContainerTemplate}" />
+    </Style>
+
+
+
+</ResourceDictionary>

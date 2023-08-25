@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dxdiag="http://schemas.devexpress.com/winfx/2008/xaml/diagram"
+                    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                    xmlns:dxdiagt="http://schemas.devexpress.com/winfx/2008/xaml/diagram/themekeys"
+                    xmlns:networkDataFlow1="clr-namespace:ProjectB.Views.WPF.Controls.NetworkDataFlow">
+    <dxmvvm:BooleanNegationConverter x:Key="BooleanNegationConverter" />
+    <Style x:Key="ZoomTrackBarEditStyle"
+           TargetType="{x:Type dxe:TrackBarEdit}">
+        <Setter Property="Minimum"
+                Value="-3600" />
+        <Setter Property="Maximum"
+                Value="3600" />
+        <Setter Property="SmallStep"
+                Value="120" />
+        <Setter Property="LargeStep"
+                Value="240" />
+        <Setter Property="TickFrequency"
+                Value="3600" />
+    </Style>
+
+    <DataTemplate x:Key="ConnectorTemplate">
+        <dxdiag:DiagramConnector Type="RightAngle"
+                                 CanMove="False"
+                                 CanRotate="False"
+                                 CanResize="False"
+                                 CanDelete="False"
+                                 CanCopy="False"
+                                 CanEdit="False">
+            <dxdiag:DiagramConnector.Bindings>
+                <dxdiag:DiagramBinding Expression="Iif(DataItem.Highlighted = True,  2, 1)"
+                                       PropertyName="StrokeThickness" />
+                <dxdiag:DiagramBinding Expression="Iif(DataItem.Highlighted = True,  '#FF6400', '#3278F0')"
+                                       PropertyName="Stroke" />
+                <dxdiag:DiagramBinding Expression="Iif(DataItem.IsExcludedFromMapping = False,  1, 0.4)"
+                                       PropertyName="Opacity" />
+                <dxdiag:DiagramBinding Expression="Iif(DataItem.IsIndirect = True, '4,5' , '1,0')"
+                                       PropertyName="StrokeDashArray" />
+            </dxdiag:DiagramConnector.Bindings>
+        </dxdiag:DiagramConnector>
+    </DataTemplate>
+
+    <SolidColorBrush x:Key="{dxdiagt:DiagramControlThemeKeys ResourceKey=PageBackground, IsThemeIndependent=True}"
+                     Color="{Binding Background.Color, RelativeSource={RelativeSource AncestorType={x:Type networkDataFlow1:WpfNetworkDataFlow}}}" />
+    <SolidColorBrush x:Key="{dxdiagt:AdornersThemeKeys ResourceKey=SelectionAdornerStroke, IsThemeIndependent=True}"
+                     Color="DarkBlue" />
+    <Style TargetType="dxdiag:SelectionAdorner">
+        <Setter Property="Visibility"
+                Value="Collapsed" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding (dxdiag:DiagramControl.Diagram).SelectedItems.Count, RelativeSource={RelativeSource Self}}"
+                         Value="1">
+                <Setter Property="Visibility"
+                        Value="Visible" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

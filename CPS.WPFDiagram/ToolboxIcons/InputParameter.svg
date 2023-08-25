@@ -1,0 +1,11 @@
+<svg width='285' height='60' xmlns='http://www.w3.org/2000/svg'>
+	<g>
+		<title>Layer 1</title>
+		<line id='topLine'	stroke='#035fb5' y2='5'  x2='255' y1='5' x1='5'		/>
+		<line id='topArray' stroke='#035fb5' y2='30' x2='280' y1='5' x1='255'		/>
+		<line id='bottomArray' stroke='#035fb5' y2='55' x2='255' y1='30' x1='280'		/>
+		<line id='bottomLine' stroke='#035fb5' y2='55' x2='5'   y1='55' x1='255'		/>
+		<line id='leftLine' stroke='#035fb5' y2='55' x2='5'   y1='5' x1='5'		/>
+		<line id='middleLine' stroke='#035fb5' y2='55' x2='30'  y1='5' x1='30'		/>
+	</g>
+</svg>

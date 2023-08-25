@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ProjectB.Views.WPF.Controls.NetworkDataFlow.WpfNetworkDataFlow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+                         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                         xmlns:dxdiagi="http://schemas.devexpress.com/winfx/2008/xaml/diagram/internal"
+                         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                         xmlns:networkDataFlow1="clr-namespace:ProjectB.Views.WPF.Controls.NetworkDataFlow"
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         x:Name="Root">
+    <Control.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Control.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <networkDataFlow1:DiagramControlEx Grid.Row="1"
+                                           x:Name="Diagram"
+                                           x:FieldModifier="public"
+                                           PageMargin="25"
+                                           FitToDrawingMargin="25"
+                                           ShowRulers="False"
+                                           CanvasSizeMode="Fill"
+                                           ZoomFactor="{Binding ZoomFactor, ElementName=Root, Mode=TwoWay}"
+                                           ContextMenuItems="{Binding ContextMenuItems, ElementName=Root, Mode=TwoWay}"
+                                           SugiyamaLayoutColumnsAlignment="Center"
+                                           SugiyamaLayoutLayersAlignment="Center"                                        
+                                           Background="{Binding Background, ElementName=Root}"
+                                           PrintExportMode="Content"
+                                           ConnectorsSeparationMode="{Binding ConnectorsSeparationMode, ElementName=Root}">
+            <dxmvvm:Interaction.Behaviors>
+                <networkDataFlow1:DiagramDataBindingBehaviorEx ItemsSource="{Binding Nodes, ElementName=Root, Mode=TwoWay}"
+                                                               ConnectorsSource="{Binding Connectors, ElementName=Root, Mode=TwoWay}"
+                                                               ConnectorFromMember="{Binding ConnectorFromMember, ElementName=Root}"
+                                                               ConnectorToMember="{Binding ConnectorToMember, ElementName=Root}"
+                                                               ConnectorsZOrder="BehindItems"
+                                                               KeyMember="Id"
+                                                               ItemTemplate="{Binding ItemTemplate, ElementName=Root}"
+                                                               ItemsGenerated="DiagramDataBindingBehaviorBase_OnItemsGenerated"
+                                                               PrimarySelection="{Binding SelectedItem, ElementName=Root, Mode=TwoWay}"
+                                                               SelectedObjects="{Binding SelectedItems, ElementName=Root, Mode=TwoWay}"
+                                                               ClearExistingItems="True"
+                                                               LayoutKind="Sugiyama"
+                                                               ConnectorTemplate="{StaticResource ConnectorTemplate}">
+                </networkDataFlow1:DiagramDataBindingBehaviorEx>
+            </dxmvvm:Interaction.Behaviors>
+        </networkDataFlow1:DiagramControlEx>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,79 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxdiag="http://schemas.devexpress.com/winfx/2008/xaml/diagram"                 
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    x:Class=" CPS.WPFDiagram.Window1" UseLayoutRounding="True"
+    Title="MainWindow" MinWidth="800" MinHeight="550" Width="1280" Height="860">
+
+    <dxdiag:DiagramControl CanvasSizeMode="Fill" SelectedStencils="TemplateDesigner" ShowPageBreaks="false">
+        <dxdiag:DiagramContainer Anchors="Left, Top" Background="#FF0000" CanCopyWithoutParent="True" ConnectionPoints="0.5,0 1,0.5 0.5,1 0,0.5" CanAddItems="False" DragMode="ByAnyPoint" Height="78" ItemsCanChangeParent="False" ItemsCanAttachConnectorEndPoint="False" ItemsCanAttachConnectorBeginPoint="False" ItemsCanSelect="False" ItemsCanEdit="False" ItemsCanCopyWithoutParent="False" ItemsCanMove="False" ItemsCanRotate="False" ItemsCanSnapToOtherItems="False" ItemsCanDeleteWithoutParent="False" ItemsCanSnapToThisItem="False" ItemsCanResize="False" Position="25,150" StrokeId="Black" Shape="StandardContainers.Alternating" ShowHeader="False" StrokeDashArray="5 3" ThemeStyleId="ShapeId.Focused1" TemplateName="ClassShape" Width="200">
+            <dxdiag:DiagramShape Anchors="Left, Top" Angle="0" Background="Transparent" CanAttachConnectorBeginPoint="False" CanResize="False" CanEdit="False" CanCopyWithoutParent="False" CanChangeParent="False" CanMove="False" CanAttachConnectorEndPoint="False" CanSelect="False" CanDeleteWithoutParent="False" CanRotate="False" ForegroundId="Black" FontWeight="Bold" FontFamily="Arial" Height="25" Position="11,10" StrokeThickness="0" ThemeStyleId="Variant2" TextAlignment="Left" Width="176">
+                <dxdiag:DiagramShape.Bindings>
+                    <dxdiag:DiagramBinding Expression="ClassName" PropertyName="Content"/>
+                </dxdiag:DiagramShape.Bindings>
+            </dxdiag:DiagramShape>
+            <dxdiag:DiagramShape Anchors="Left, Top" Angle="0" Background="Transparent" CanAttachConnectorBeginPoint="False" CanResize="False" CanEdit="False" CanCopyWithoutParent="False" CanChangeParent="False" CanMove="False" CanAttachConnectorEndPoint="False" CanSelect="False" CanDeleteWithoutParent="False" CanRotate="False" ForegroundId="Black_3" FontFamily="Arial" Height="25" Position="11,37.5" Stroke="Transparent" StrokeThickness="0" TextAlignment="Left" Width="176">
+                <dxdiag:DiagramShape.Bindings>
+                    <dxdiag:DiagramBinding Expression="Type" PropertyName="Content"/>
+                </dxdiag:DiagramShape.Bindings>
+            </dxdiag:DiagramShape>
+        </dxdiag:DiagramContainer>
+        <dxdiag:DiagramConnector BeginPoint="300,164" CanDragBeginPoint="False" CanChangeRoute="False" CanDragEndPoint="False" EndArrow="ClosedASMEArrow" EndArrowSize="10,10" EndPoint="390,254" Points="(Empty)" StrokeId="Black" TemplateName="ClassConnector" Type="Straight"/>
+
+        <dxdiag:DiagramContainer Anchors="Left, Top"
+                                                     BackgroundId="Dark_2"
+                                                     CanCopyWithoutParent="True"
+                                                     ConnectionPoints="0.5,0 1,0.5 0.5,1 0,0.5"
+                                                     CanAddItems="False"
+                                                     DragMode="ByAnyPoint"
+                                                     Height="78"
+                                                     ItemsCanChangeParent="False"
+                                                     ItemsCanAttachConnectorEndPoint="False"
+                                                     ItemsCanAttachConnectorBeginPoint="False"
+                                                     ItemsCanSelect="False"
+                                                     ItemsCanEdit="False"
+                                                     ItemsCanCopyWithoutParent="False"
+                                                     ItemsCanMove="False"
+                                                     ItemsCanRotate="False"
+                                                     ItemsCanSnapToOtherItems="False"
+                                                     ItemsCanDeleteWithoutParent="False"
+                                                     ItemsCanSnapToThisItem="False"
+                                                     ItemsCanResize="False"
+                                                     Position="428,369"
+                                                     StrokeId="Black"
+                                                     Shape="StandardContainers.Alternating"
+                                                     ShowHeader="False"
+                                                     StrokeDashArray="5 3"
+                                                     ThemeStyleId="ShapeId.Focused1"
+                                                     TemplateName="InterfaceShape"
+                                                     Width="200">
+
+            <!--<dxdiag:DiagramShape Anchors="Left, Top" Angle="0" Background="Transparent" CanAttachConnectorBeginPoint="False" CanResize="False" CanEdit="False" CanCopyWithoutParent="False" CanChangeParent="False" CanMove="False" CanAttachConnectorEndPoint="False" CanSelect="False" CanDeleteWithoutParent="False" CanRotate="False" ForegroundId="Black" FontWeight="Bold" FontFamily="Arial" Height="25" Position="11,10" StrokeThickness="0" ThemeStyleId="Variant2" TextAlignment="Left" Width="176">
+                                    <dxdiag:DiagramShape.Bindings>
+                                        <dxdiag:DiagramBinding Expression="ClassName" PropertyName="Content"/>
+                                    </dxdiag:DiagramShape.Bindings>
+                                </dxdiag:DiagramShape>
+                                <dxdiag:DiagramShape Anchors="Left, Top" Angle="0" Background="Transparent" CanAttachConnectorBeginPoint="False" CanResize="False" CanEdit="False" CanCopyWithoutParent="False" CanChangeParent="False" CanMove="False" CanAttachConnectorEndPoint="False" CanSelect="False" CanDeleteWithoutParent="False" CanRotate="False" ForegroundId="Black_3" FontFamily="Arial" Height="25" Position="11,37.5" Stroke="Transparent" StrokeThickness="0" TextAlignment="Left" Width="176">
+                                    <dxdiag:DiagramShape.Bindings>
+                                        <dxdiag:DiagramBinding Expression="Type" PropertyName="Content"/>
+                                    </dxdiag:DiagramShape.Bindings>
+                                </dxdiag:DiagramShape>-->
+
+            <dxdiag:DiagramContentItem CanSelect="False"
+                                                           CanMove="False"
+                                                           CanDelete="False"
+                                                           Background="Transparent"
+                                                           BorderThickness="0"
+                                                           Position="11,10"
+                                                           CustomStyleId="contentItemStyle">
+                <dxdiag:DiagramContentItem.Bindings>
+                    <dxdiag:DiagramBinding Expression=""
+                                                               PropertyName="Content" />
+                </dxdiag:DiagramContentItem.Bindings>
+            </dxdiag:DiagramContentItem>
+        </dxdiag:DiagramContainer>
+        <dxdiag:DiagramConnector BeginPoint="500,175" CanDragBeginPoint="False" CanChangeRoute="False" CanDragEndPoint="False" EndArrow="Filled90" EndArrowSize="10,10" EndPoint="590,265" Points="(Empty)" StrokeId="Black" TemplateName="InterfaceConnector" Type="Straight"/>
+    </dxdiag:DiagramControl>
+</dx:ThemedWindow>

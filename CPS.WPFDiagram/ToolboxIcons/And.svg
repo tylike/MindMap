@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<svg width="195" height="120" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.0">
+ <g class="layer">
+	 <path d="		   
+		   M 20 0
+		   L 120 0
+           A 50 50, 0, 0, 1, 120 100
+		   L 20 100
+		   L 20 0
+		   M 0 20
+		   L 20 20
+		   M 0 80
+		   L 20 80
+		   M 170 50
+		   L 195 50
+           " stroke='#035fb5' fill='none'/>
+	 <!--
+	 M 100 0
+	 path d 参数说明:
+	 A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+	 rx: x轴半径
+	 ry: y轴半径
+	 x-axis-rotation: 椭圆的旋转角度
+	 large-arc-flag: 0:小于180度, 1:大于180度
+	 sweep-flag: 0:逆时针, 1:顺时针
+	 x y: 终点坐标	 
+	 
+	 L x y: 直线
+	 M x y: 移动到坐标
+	 
+	 -->
+	 <text x="40" y="70" font-size="50">AND</text>
+ </g>
+</svg>

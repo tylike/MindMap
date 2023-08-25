@@ -1,0 +1,17 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxdiag="http://schemas.devexpress.com/winfx/2008/xaml/diagram"                 
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"        
+    xmlns:local="clr-namespace:CPS.WPFDiagram"
+
+    x:Class="CPS.WPFDiagram.MainWindow" UseLayoutRounding="True"
+    Title="MainWindow" MinWidth="800" MinHeight="550" Width="1280" Height="860">
+
+    <dxdiag:DiagramDesignerControl  Name="diagram"  ShowPageBreaks="false" SelectedStencils="InputParameter,Operator,Function" ShowingEditor="diagram_ShowingEditor">
+        <local:DiagramConnectorEx BeginItemPointIndex="1" BeginPoint="100,100" EndPoint="400,400" StrokeThickness="2" Stroke="Green"/>
+
+    </dxdiag:DiagramDesignerControl>
+
+</dx:ThemedWindow>

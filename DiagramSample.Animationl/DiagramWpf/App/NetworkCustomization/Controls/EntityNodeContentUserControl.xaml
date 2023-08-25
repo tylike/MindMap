@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="ProjectB.Views.WPF.DataFlow_2_0.Views.Resources.EntityNodeContentUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:views="clr-namespace:ProjectB.Views.WPF.DataFlow_2_0.Views"
+             xmlns:converters1="clr-namespace:ProjectB.Views.WPF.Converters"
+             xmlns:converters2="clr-namespace:ProjectB.Views.WPF.DataFlow_2_0.Views.Converters"
+             xmlns:converters="clr-namespace:WpfProject.App.NetworkCustomization.Converters"
+             xmlns:app="clr-namespace:WpfProject.App"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+
+    <Grid ShowGridLines="False">
+
+        <Grid.Resources>
+            <converters:TrueToVisibilityConverter x:Key="TrueToVisibilityConverter" />
+            <converters2:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
+            <converters2:BoolToFontStyleConverter x:Key="BoolToFontStyleConverter" />
+            <converters2:FormattedTextLineToMarginConverter x:Key="FormattedTextLineToMarginConverter" />
+            <converters2:BoolToTextWrappingConverter x:Key="BoolToTextWrappingConverter" />
+            <converters1:ByteArrayToBitmapConverter x:Key="ByteArrayToBitmapConverter" />
+            <converters1:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter" />
+            <converters1:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters1:NotBooleanToVisibilityConverter x:Key="NotBooleanToVisibilityConverter" />
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Label}"
+                   TextTrimming="CharacterEllipsis"
+                   Grid.Column="0"
+                   Margin="0,0,3,0"
+                   Background="Orchid"
+                   Visibility="{Binding Label, Converter={StaticResource ObjectToVisibilityConverter}}" />
+
+        <dx:DXImage x:Name="UnsyncedImage"
+                    Source="../../../Icons/UnsyncedEntity.png"
+                    SnapsToDevicePixels="True"
+                    Width="14"
+                    Height="14"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Visibility="{Binding DataFlowObj.IsSynced, Converter={StaticResource NotBooleanToVisibilityConverter}}" />
+
+        <dx:DXImage Source="{Binding SubtypeImage, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                    SnapsToDevicePixels="True"
+                    Width="14"
+                    Height="14"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Visibility="{Binding DataContext.ShowIproSubtypes,
+                                 RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type app:AppView}}, 
+                                 Converter={StaticResource BoolToVisibilityConverter} }" />
+
+        <Grid VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Grid.Column="3"
+              Grid.Row="0"
+              Margin="2,0,2,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <dx:DXImage Source="{Binding Image, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                        SnapsToDevicePixels="True"
+                        Width="14"
+                        Height="14"
+                        Grid.Row="0"
+                        Grid.Column="0" />
+
+            <TextBlock Margin="2,0,0,0"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       FontWeight="DemiBold"
+                       Text="{Binding Title}"
+                       TextTrimming="CharacterEllipsis"
+                       Foreground="Black"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </Grid>
+
+        <dx:DXImage x:Name="CommentImage"
+                    Source="{Binding CommentImage, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                    SnapsToDevicePixels="True"
+                    Width="14"
+                    Height="14"
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Visibility="{Binding Source, ElementName=CommentImage, Converter={StaticResource ObjectToVisibilityConverter}}" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="5"
+                   Text="{Binding DataFlowObj.CommentOwnerMiddleInfo}"
+                   TextWrapping="WrapWithOverflow"
+                   FontStyle="Italic"
+                   Foreground="Black"
+                   TextAlignment="Center"
+                   TextTrimming="CharacterEllipsis"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="{Binding DataFlowObj.CommentOwnerMiddleInfo, Converter={StaticResource ObjectToVisibilityConverter}}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="5"
+                   Text="{Binding Description}"
+                   TextWrapping="WrapWithOverflow"
+                   Foreground="Black"
+                   TextAlignment="Center"
+                   TextTrimming="CharacterEllipsis"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                />
+
+        <Border Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                Background="Gray"
+                Visibility="{Binding Visibility, ElementName= DetailLinesControl}" />
+
+        <ItemsControl x:Name="DetailLinesControl"
+                      Grid.Row="4"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="5"
+                      ItemsSource="{Binding VisibleDetailLines}"
+                      Visibility="{Binding VisibleDetailLines, Converter={StaticResource ObjectToVisibilityConverter}}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="{Binding Converter={StaticResource FormattedTextLineToMarginConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <dx:DXImage x:Name="headImage"
+                                    Source="{Binding HeadImageBytes, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                                    Margin="0,0,2,0"
+                                    Width="9"
+                                    Grid.Column="0"
+                                    VerticalAlignment="Top"
+                                    Height="9" />
+                        <dx:DXImage x:Name="lineImage"
+                                    Source="{Binding ImageBytes, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                                    Margin="0,0,2,0"
+                                    Width="9"
+                                    VerticalAlignment="Top"
+                                    Grid.Column="1"
+                                    Height="9" />
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Text}"
+                                   TextTrimming="CharacterEllipsis"
+                                   TextWrapping="{Binding Multiline,  Converter={StaticResource BoolToTextWrappingConverter}}"
+                                   FontWeight="{Binding IsBold, Converter={StaticResource BoolToFontWeightConverter}}"
+                                   FontStyle="{Binding IsItalic, Converter={StaticResource BoolToFontStyleConverter}}" />
+                    </Grid>
+
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding ImageBytes}"
+                                     Value="{x:Null}">
+                            <Setter Property="Visibility"
+                                    Value="Collapsed"
+                                    TargetName="lineImage" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding HeadImageBytes}"
+                                     Value="{x:Null}">
+                            <Setter Property="Visibility"
+                                    Value="Collapsed"
+                                    TargetName="headImage" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+
+</UserControl>
